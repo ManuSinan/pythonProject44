@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/button.css' %}">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+ <form action="reg" method="post">
+<div class="btn-container">
+  <form action="withdrw" method="post">
+    {% csrf_token %}
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="withdrawModal">
+    Withdraw</button>
+  </form>
+  <form action="dep" method="post">
+    {% csrf_token %}
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="depositModal">
+    Deposit</button>
+  </form>
+  <form action="balance" method="get">
+   {% csrf_token %}
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="balanceModal">
+    Check Balance</button>
+  </form>
+</div>
+<div class="modal fade" id="withdrawModal" tabindex="-1" role="dialog" aria-labelledby="withdrawModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="withdrawModalLabel">Withdraw</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="withdrawAmount">Amount</label>
+            <input type="number" class="form-control" id="withdrawAmount" placeholder="Enter amount">
+          </div>
+          <button type="submit" class="btn btn-primary">Withdraw</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="depositModal" tabindex="-1" role="dialog" aria-labelledby="depositModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="depositModalLabel">Deposit Money</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="depositAmount">Amount</label>
+            <input type="number" class="form-control" id="depositAmount" placeholder="Enter amount">
+          </div>
+          <button type="submit" class="btn btn-primary">Deposit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="balanceModal" tabindex="-1" role="dialog" aria-labelledby="balanceModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="balanceModalLabel">Check Balance</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.10.2/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
